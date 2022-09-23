@@ -9,8 +9,12 @@ public class Empresa {
         listaUnidadDeTrabajo = new ArrayList<>();
     }
 
-    public void agregarUnidadDeTrabajo(UnidadDeTrabajo unidadDeTrabajo){
-        listaUnidadDeTrabajo.add(unidadDeTrabajo);
+    public void agregarUnidadDeTrabajo(String codigo){
+        try {
+            listaUnidadDeTrabajo.add(UnidadDeTrabajoFactory.getInstance().crearUnidadDeTrabajo(codigo));
+        }catch (UnidadDeTrabajoFactoryException e){
+            e.printStackTrace();
+        }
     }
 
     public void mostrarUnidades(){
